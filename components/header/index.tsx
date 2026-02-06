@@ -1,0 +1,33 @@
+import React from 'react';
+
+export const Header: React.FC = () => {
+    return (
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-teal-500">TravelAgency.</span>
+            </div>
+
+            <nav className="hidden md:flex space-x-8">
+              <a href="#" className="text-gray-900 font-medium hover:text-teal-500 transition-colors">Home</a>
+              <a href="#" className="text-gray-400 hover:text-teal-500 transition-colors">Ticket</a>
+              <a href="#" className="text-gray-400 hover:text-teal-500 transition-colors">Explore</a>
+              <a href="#" className="text-gray-400 hover:text-teal-500 transition-colors">Activity</a>
+            </nav>
+
+            <div className="flex items-center space-x-4">
+              <button className="text-gray-600 hover:text-teal-500 transition-colors text-sm">
+                Sign in
+              </button>
+              <button className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors text-sm">
+                Sign up
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+};
+
+export default Header;
