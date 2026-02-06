@@ -42,7 +42,7 @@ const places: Place[] = [
 export default function PopularPlace() {
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div className="mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-2">Popular Place</h2>
           <p className="text-gray-600 max-w-2xl">

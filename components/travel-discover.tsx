@@ -59,7 +59,7 @@ const reviews: Review[] = [
 export default function TravelDiscover() {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
             Travel to make sweet memories
@@ -90,7 +90,7 @@ export default function TravelDiscover() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 text-md">
                     {feature.description}
                   </p>
                 </div>
@@ -103,14 +103,12 @@ export default function TravelDiscover() {
           </div>
 
           <div className="relative">
-            <div
-              className="relative rounded-2xl overflow-hidden shadow-2xl h-96 bg-cover bg-center"
-              style={{
-                backgroundImage: 'url("https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=800")',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+            <div className='flex items-center justify-center w-full'>
+              <img
+                src="https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Travel destination"
+                className="rounded-2xl overflow-hidden shadow-2xl h-[500px] w-2/3 object-cover"
+              />
             </div>
 
             <div className="absolute top-8 right-8 bg-white rounded-2xl shadow-lg p-4 max-w-xs">
@@ -141,7 +139,7 @@ export default function TravelDiscover() {
               </div>
             </div>
 
-            <div className="absolute bottom-8 left-8 bg-white rounded-2xl shadow-lg p-4 max-w-xs">
+            <div className="absolute bottom-1/2 left-8 bg-white rounded-2xl shadow-lg p-4 max-w-xs">
               <div className="flex items-start gap-3">
                 <img
                   src={reviews[1].image}
