@@ -37,7 +37,7 @@ export default function Hero() {
                         </div>
 
                         <p className="text-white/50 text-lg mt-4">
-                            Find out write about your experiences around the world.
+                            Find and write about your experiences around the world.
                         </p>
                     </div>
                 </div>

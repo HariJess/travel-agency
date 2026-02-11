@@ -18,7 +18,7 @@ const places: Place[] = [
   },
   {
     id: '2',
-    title: 'Les Maldives',
+    title: 'Maldives',
     location: 'Malé, Maldives',
     image: '#',
     discount: '25% OFF'
@@ -46,7 +46,7 @@ export default function PopularPlace() {
         <div className="mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-2">Popular Place</h2>
           <p className="text-gray-600 max-w-2xl">
-            Many places are very famous, beautiful, clean, and will give a very deep impression to visitors on vacation and make them come back.
+            Discover world-famous spots and hidden gems that leave a lasting impression. Places so beautiful, you’ll be planning your return before you even leave.
           </p>
         </div>
 

@@ -11,7 +11,7 @@ interface GridMotionProps {
 const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const mouseXRef = useRef<number>(window.innerWidth / 2);
+  const mouseXRef = useRef<number>(0);
 
   const totalItems = 28;
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
@@ -19,6 +19,8 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
 
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
+
+    mouseXRef.current = window.innerWidth / 2;
 
     const handleMouseMove = (e: MouseEvent): void => {
       mouseXRef.current = e.clientX;

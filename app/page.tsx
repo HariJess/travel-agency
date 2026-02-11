@@ -1,6 +1,7 @@
 'use client';
 
 import Hero from '@/components/hero';
+import Footer from '@/components/footer';
 import Header from '@/components/header';
 import PopularPlace from '@/components/popular-place';
 import TravelDiscover from '@/components/travel-discover';
@@ -17,14 +18,22 @@ export default function Home() {
       <main className="max-w-7xl mx-auto">
         {/* hero section */}
         <Hero />
+
         {/* Popular Place Section */}
         <PopularPlace />
+
+        {/* Why Choose Us Section */}
 
         {/* Travel Discover Section */}
         <TravelDiscover />
 
         {/* Explore More Section */}
         <ExploreMore />
+
+        {/* Contact & Reservation Section */}
+
+        {/* Footer Section */}
+        <Footer />
       </main>
     </div>
   );
