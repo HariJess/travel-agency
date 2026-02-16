@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import {
-  Plus,
-  Phone,
-  MessageSquare,
   Mail,
-  Settings,
   User,
   ArrowRight,
   Facebook,
@@ -39,6 +35,7 @@ export default function ContactCard() {
   };
 
   // social links data 
+  
   const socialLinks = [
   {
     label: "Facebook",
@@ -67,48 +64,16 @@ export default function ContactCard() {
     <section className="bg-teal-500 relative z-10 w-full max-w-7xl mx-auto py-16 px-4 sm:px-8 lg:px-16">
       <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden">
         <div className="grid md:grid-cols-2">
-          {/* LEFT - Illustration / decorative */}
+          {/* LEFT - Video */}
           <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-12 flex items-center justify-center relative">
-            <div className="relative w-full max-w-xs">
-              {/* decorative small icons */}
-              <div className="absolute -top-4 -left-4 w-6 h-6 text-cyan-400">
-                <Plus className="w-6 h-6" />
-              </div>
-              <div className="absolute top-8 -right-4 w-4 h-4 rounded-full border-2 border-pink-400" />
-              <div className="absolute -bottom-4 left-8 w-3 h-3 rounded-full bg-yellow-400" />
-              <div className="absolute bottom-12 -right-6 w-4 h-4 text-green-400">
-                <Plus className="w-4 h-4" />
-              </div>
-
-              {/* phone card stacked on gradient */}
-              <div className="w-48 h-48 mx-auto mb-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-3xl transform rotate-6" />
-                <div className="relative bg-white rounded-3xl p-8 shadow-xl">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Phone className="w-20 h-20 text-purple-600" />
-                  </div>
-
-                  {/* small pink bars on top */}
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-                    <div className="w-12 h-3 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full" />
-                    <div className="w-8 h-3 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full" />
-                  </div>
-                </div>
-              </div>
-
-              {/* floating badges */}
-              <div className="absolute -left-8 top-1/4 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-2xl flex items-center justify-center shadow-lg transform -rotate-12">
-                <MessageSquare className="w-6 h-6 text-white" />
-              </div>
-              <div className="absolute -right-8 top-1/3 w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center shadow-lg transform rotate-12">
-                <Mail className="w-5 h-5 text-white" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 text-pink-500">
-                <Settings className="w-8 h-8" />
-              </div>
-              <div className="absolute -bottom-2 left-12 w-10 h-10 text-green-500">
-                <Settings className="w-6 h-6" />
-              </div>
+            <div className='flex items-center justify-center w-full'>
+              <video
+                src="/contact/contact.mp4"
+                autoPlay
+                loop
+                muted
+                className="rounded-2xl overflow-hidden shadow-2xl h-[500px] w-4/5 object-cover"
+              />
             </div>
           </div>
 

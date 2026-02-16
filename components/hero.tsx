@@ -11,15 +11,32 @@ export default function Hero() {
     return (
         <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-8">
             <div className="relative bg-gradient-to-br from-sky-400 via-cyan-400 to-blue-500 rounded-3xl overflow-hidden shadow-2xl">
+                {/* Background image - commented out
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: 'url("/hero-bg.jpg")',
+                        backgroundImage: 'url("/hero-bg.png")',
                         backgroundPosition: 'center 30%'
                     }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-sky-400/40 via-transparent to-transparent"></div>
                 </div>
+                */}
+
+                {/* Background video - plays very slowly */}
+                <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    style={{
+                        animationPlayState: 'paused',
+                        opacity: 0.8
+                    }}
+                >
+                    <source src="/hero-bg.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-b from-sky-400/40 via-transparent to-transparent"></div>
 
                 {/* Hero text section */}
                 <div className="relative z-10 px-8 sm:px-12 lg:px-16 py-32">
