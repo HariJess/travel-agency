@@ -44,7 +44,7 @@ export default function PopularPlace() {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Popular Place</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">Popular place</h2>
           <p className="text-gray-600 max-w-2xl">
             Discover world-famous spots and hidden gems that leave a lasting impression. Places so beautiful, you’ll be planning your return before you even leave.
           </p>

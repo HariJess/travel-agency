@@ -6,6 +6,7 @@ import Header from '@/components/header';
 import PopularPlace from '@/components/popular-place';
 import TravelDiscover from '@/components/travel-discover';
 import ExploreMore from '@/components/explore-more';
+import ContactCard from '@/components/contact-form';
 
 export default function Home() {
 
@@ -23,14 +24,13 @@ export default function Home() {
         <PopularPlace />
 
         {/* Why Choose Us Section */}
-
-        {/* Travel Discover Section */}
         <TravelDiscover />
 
         {/* Explore More Section */}
         <ExploreMore />
 
         {/* Contact & Reservation Section */}
+        <ContactCard />
 
         {/* Footer Section */}
         <Footer />

@@ -80,7 +80,7 @@ export default function TravelDiscover() {
                         ? 'bg-blue-400'
                         : index === 1
                         ? 'bg-cyan-400'
-                        : 'bg-teal-500'
+                        : 'bg-red-500'
                     }`}
                   >
                     {feature.number}
