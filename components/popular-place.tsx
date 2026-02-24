@@ -55,7 +55,7 @@ export default function PopularPlace() {
             <div key={place.id} className="group cursor-pointer">
               <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-48">
                 <img
-                  src={`/popular/${idx + 1}.jpg`}
+                  src={`/popular/${idx + 1}.webp`}
                   alt={place.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />

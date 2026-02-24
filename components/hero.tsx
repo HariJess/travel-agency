@@ -36,7 +36,7 @@ export default function Hero() {
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-b from-sky-400/40 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-400/50 to-transparent"></div>
 
                 {/* Hero text section */}
                 <div className="relative z-10 px-8 sm:px-12 lg:px-16 py-32">
@@ -53,7 +53,7 @@ export default function Hero() {
                             <div className="absolute -right-16 top-10 w-12 h-px border-t-2 border-dashed border-white/40"></div>
                         </div>
 
-                        <p className="text-white/50 text-lg mt-4">
+                        <p className="text-white/80 text-lg mt-4">
                             Find and write about your experiences around the world.
                         </p>
                     </div>

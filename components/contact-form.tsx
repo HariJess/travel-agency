@@ -70,8 +70,8 @@ export default function ContactCard() {
               <video
                 src="/contact/contact.mp4"
                 autoPlay
-                loop
                 muted
+                playsInline
                 className="rounded-2xl overflow-hidden shadow-2xl h-[500px] w-4/5 object-cover"
               />
             </div>
@@ -143,7 +143,7 @@ export default function ContactCard() {
                 aria-label="Submit"
                 disabled={submitting}
               >
-                Get My Free Quote <ArrowRight className="w-5 h-5" />
+                Get My Free Quote
               </button>
             </form>
 
