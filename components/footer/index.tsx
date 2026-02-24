@@ -107,7 +107,7 @@ export default function Footer() {
           <p className="text-sm text-gray-600 mb-4">
             Subscribe to our newsletter and get exciting offers
           </p>
-          <form onSubmit={handleSubscribe} className="flex mt-auto">
+          <form onSubmit={handleSubscribe} className="flex">
             <input
               type="email"
               value={email}
@@ -130,7 +130,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-300 pt-8">
           <p className="text-center text-sm text-gray-600">
-            © 2024 MyTravelAgency. All rights reserved.
+            © 2026 MyTravelAgency. All rights reserved.
           </p>
         </div>
       </div>

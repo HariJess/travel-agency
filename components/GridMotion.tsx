@@ -13,10 +13,18 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const mouseXRef = useRef<number>(0);
 
-  const totalItems = 28;
+  const totalItems = 35; // 5 rows x 7 items par row
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
-  const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems;
 
+  let combinedItems: (string | ReactNode)[] = defaultItems;
+  if (items && items.length > 0) {
+    // Si on a >= totalItems, on prend les premières, sinon on boucle les images avec modulo
+    combinedItems = items.length >= totalItems
+      ? items.slice(0, totalItems)
+      : Array.from({ length: totalItems }, (_, i) => items[i % items.length]);
+  }
+
+  // Animation logic
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
 
@@ -55,6 +63,9 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
     };
   }, []);
 
+  // url check helper 
+  const isUrl = (s: string) => typeof s === 'string' && (s.startsWith('http') || s.startsWith('/'));
+
   return (
     <div ref={gridRef} className="h-full w-full overflow-hidden">
       <section
@@ -64,8 +75,8 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
         }}
       >
         <div className="absolute inset-0 pointer-events-none z-[4] bg-[length:250px]"></div>
-        <div className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
-          {Array.from({ length: 4 }, (_, rowIndex) => (
+        <div className="gap-4 flex-none relative w-[150vw] h-[125vh] grid grid-rows-5 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
+          {Array.from({ length: 5 }, (_, rowIndex) => (
             <div
               key={rowIndex}
               className="grid gap-4 grid-cols-7"
@@ -79,11 +90,15 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
                 return (
                   <div key={itemIndex} className="relative">
                     <div className="relative w-full h-full overflow-hidden rounded-[10px] bg-[#111] flex items-center justify-center text-white text-[1.5rem]">
-                      {typeof content === 'string' && content.startsWith('http') ? (
-                        <div
-                          className="w-full h-full bg-cover bg-center absolute top-0 left-0"
-                          style={{ backgroundImage: `url(${content})` }}
-                        ></div>
+                      {typeof content === 'string' && isUrl(content) ? (
+                        <img
+                          src={content}
+                          alt={`gallery-${rowIndex}-${itemIndex}`}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : typeof content === 'string' ? (
+                        <div className="p-4 text-center z-[1]">{content}</div>
                       ) : (
                         <div className="p-4 text-center z-[1]">{content}</div>
                       )}
