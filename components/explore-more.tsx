@@ -27,7 +27,7 @@ export default function ExploreMore(){
         <div className="mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-2">Explore more</h2>
           <p className="text-gray-600 max-w-2xl">
-            Let's go on a journey to discover the most beautiful places in the world and experience incredible moments.
+            Join us on a journey to discover the most beautiful places in the world and experience incredible moments.
           </p>
         </div>
        </div>

@@ -24,15 +24,15 @@ export default function Footer() {
     { label: "Home", href: "#home" },
     { label: "Destinations ", href: "#destinations" },
     { label: "Why Us", href: "#why-us" },
-    { label: "Reviews ", href: "#reviews" },
-    { label: "Book Now ", href: "#book-now" },
+    { label: "Vibes", href: "#vibes" },
+    // { label: "Book Now ", href: "#book-now" },
   ];
 
   // Support links
   const supportLinks = [
-  { label: "Support Center", href: "#support-center" },
-  { label: "Feedback", href: "#feedback" },
   { label: "Contact Us", href: "#contact" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Privacy Policy", href: "#privacy-policy" },
 ];
 
   return (

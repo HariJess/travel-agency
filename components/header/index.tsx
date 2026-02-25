@@ -11,17 +11,17 @@ export const Header: React.FC = () => {
 
             <nav className="hidden md:flex space-x-8">
               <a href="#" className="text-teal-500 font-medium hover:text-gray-600 transition-colors">Home</a>
-              <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors">Ticket</a>
-              <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors">Explore</a>
-              <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors">Activity</a>
+              <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors">Destinations</a>
+              <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors">Why Us</a>
+              <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors">Vibes</a>
             </nav>
 
             <div className="flex items-center space-x-4">
-              <button className="text-gray-600 hover:text-teal-500 transition-colors text-sm">
+              {/* <button className="text-gray-600 hover:text-teal-500 transition-colors text-sm">
                 Sign in
-              </button>
+              </button> */}
               <button className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors text-sm">
-                Sign up
+                Book Now
               </button>
             </div>
           </div>
