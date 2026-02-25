@@ -65,7 +65,7 @@ export default function ContactCard() {
       <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           {/* LEFT - Video */}
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-12 flex items-center justify-center relative">
+          <div className="bg-gradient-to-br from-purple-50 to-blue-50 px-4 lg:p-12 flex items-center justify-center relative">
             <div className='flex items-center justify-center w-full'>
               <video
                 src="/contact/contact.mp4"
@@ -78,7 +78,7 @@ export default function ContactCard() {
           </div>
 
           {/* RIGHT - Form */}
-          <div className="p-12">
+          <div className="p-8 lg:p-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Contact us</h2>
 
             <form id="contact-form" data-readdy-form="true" onSubmit={handleSubmit} className="space-y-6">

@@ -7,6 +7,7 @@ import PopularPlace from '@/components/popular-place';
 import TravelDiscover from '@/components/travel-discover';
 import ExploreMore from '@/components/explore-more';
 import ContactCard from '@/components/contact-form';
+import ScrollToTopButton from '@/components/ui/ScrollToTop';
 
 export default function Home() {
 
@@ -35,6 +36,8 @@ export default function Home() {
         {/* Footer Section */}
         <Footer />
       </main>
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton/>
     </div>
   );
 }
