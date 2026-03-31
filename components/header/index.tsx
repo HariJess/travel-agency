@@ -1,9 +1,13 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useLoading } from '../LoadingProvider';
 import { Menu } from 'lucide-react';
 
+
 export const Header: React.FC = () => {
+  const { isLoading } = useLoading();
   const [open, setOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,7 +37,12 @@ export const Header: React.FC = () => {
   }, [open]);
 
   return (
-    <header className="bg-white shadow-sm">
+    <motion.header
+      className="bg-white shadow-sm"
+      initial={{ y: '-100%', opacity: 0 }}
+      animate={!isLoading ? { y: 0, opacity: 1 } : { y: '-100%', opacity: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -52,7 +61,6 @@ export const Header: React.FC = () => {
               Book Now
             </button>
 
-            {/* hamburger toggle (toggle open/close) */}
             <button
               onClick={() => setOpen((prev) => !prev)}
               aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
@@ -65,7 +73,6 @@ export const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Modal overlay + centered modal (full width on xs, max-w on larger) */}
         {open && (
           <div
             className="fixed inset-12 z-50 flex items-start lg:items-center justify-center p-4"
@@ -73,10 +80,7 @@ export const Header: React.FC = () => {
             aria-modal="true"
             aria-labelledby="mobile-menu"
           >
-            {/* overlay */}
             <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
-
-            {/* modal content: width full on small screens, centered w/ max-w on larger */}
             <div
               ref={menuRef}
               id="mobile-menu"
@@ -88,7 +92,6 @@ export const Header: React.FC = () => {
                 <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600">Why Us</a>
                 <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-teal-600">Vibes</a>
               </nav>
-
               <div className="mt-6">
                 <button className="w-full bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors text-sm">Book Now</button>
               </div>
@@ -96,7 +99,7 @@ export const Header: React.FC = () => {
           </div>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 };
 

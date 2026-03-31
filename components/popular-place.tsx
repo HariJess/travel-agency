@@ -1,4 +1,5 @@
 import { MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface Place {
   id: string;
@@ -46,13 +47,24 @@ export default function PopularPlace() {
         <div className="mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-2">Popular place</h2>
           <p className="text-gray-600 max-w-2xl">
-            Discover world-famous spots and hidden gems that leave a lasting impression. Places so beautiful, you’ll be planning your return before you even leave.
+            Discover world-famous spots and hidden gems that leave a lasting impression. Places so beautiful, you'll be planning your return before you even leave.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {places.map((place,idx) => (
-            <div key={place.id} className="group cursor-pointer">
+          {places.map((place, idx) => (
+            <motion.div
+              key={place.id}
+              className="group cursor-pointer"
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 2,
+                delay: idx * 0.8,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-48">
                 <img
                   src={`/popular/${idx + 1}.webp`}
@@ -60,22 +72,19 @@ export default function PopularPlace() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-transparent"></div>
-
                 <div className="absolute top-4 right-4 bg-white/70 text-black text-xs font-bold px-3 py-1 rounded-lg">
                   {place.discount}
                 </div>
               </div>
 
               <div className="mt-4">
-                <h3 className="text-lg font-bold text-gray-900">
-                  {place.title}
-                </h3>
+                <h3 className="text-lg font-bold text-gray-900">{place.title}</h3>
                 <div className="flex items-center mt-2 text-gray-600">
                   <MapPin className="w-4 h-4 text-teal-500 mr-1 flex-shrink-0" />
                   <span className="text-sm">{place.location}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

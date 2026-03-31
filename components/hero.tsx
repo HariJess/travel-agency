@@ -2,37 +2,24 @@
 
 import { useState } from 'react';
 import { Plane, MapPin, Calendar, Users, Search } from 'lucide-react';
-
-
+import { motion } from 'framer-motion';
+import { useLoading } from './LoadingProvider';
 
 export default function Hero() {
     const [activeTab, setActiveTab] = useState('hotelery');
+    const { isLoading } = useLoading();
+
+    const words = "Explore the whole world and enjoy its beauty".split(" ");
 
     return (
         <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-8">
             <div className="relative bg-gradient-to-br from-sky-400 via-cyan-400 to-blue-500 rounded-3xl overflow-hidden shadow-2xl">
-                {/* Background image - commented out
-                <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{
-                        backgroundImage: 'url("/hero-bg.png")',
-                        backgroundPosition: 'center 30%'
-                    }}
-                >
-                    <div className="absolute inset-0 bg-gradient-to-b from-sky-400/40 via-transparent to-transparent"></div>
-                </div>
-                */}
-
-                {/* Background video - plays very slowly */}
                 <video
                     className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
-                    style={{
-                        animationPlayState: 'paused',
-                        opacity: 0.8
-                    }}
+                    style={{ animationPlayState: 'paused', opacity: 0.8 }}
                 >
                     <source src="/hero-bg.mp4" type="video/mp4" />
                 </video>
@@ -46,21 +33,47 @@ export default function Hero() {
                             <div className="absolute -left-16 top-2 w-12 h-px border-t-2 border-dashed border-white/40"></div>
 
                             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                                Explore the whole world<br />and enjoy its beauty
+                                {words.map((word, i) => (
+                                    <motion.span
+                                        key={i}
+                                        className="inline-block mr-[0.3em]"
+                                        initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                                        animate={!isLoading ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+                                        transition={{
+                                            duration: 0.9,
+                                            delay: i * 0.07,
+                                            ease: [0.22, 1, 0.36, 1],
+                                        }}
+                                    >
+                                        {word}
+                                        {/* line break after "world" */}
+                                        {word === 'world' && <br />}
+                                    </motion.span>
+                                ))}
                             </h1>
 
                             <Plane className="absolute -right-20 top-8 text-white/60 w-6 h-6 -rotate-12" />
                             <div className="absolute -right-16 top-10 w-12 h-px border-t-2 border-dashed border-white/40"></div>
                         </div>
 
-                        <p className="text-white/80 text-lg mt-4">
+                        <motion.p
+                            className="text-white/80 text-lg mt-4"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6, delay: words.length * 0.07 + 0.1, ease: 'easeOut' }}
+                        >
                             Find and write about your experiences around the world.
-                        </p>
+                        </motion.p>
                     </div>
                 </div>
 
                 {/* Reservation section */}
-                <div className="relative z-20 px-8 sm:px-12 lg:px-16 pb-8 -mt-16">
+                <motion.div
+                    className="relative z-20 px-8 sm:px-12 lg:px-16 pb-8 -mt-16"
+                    initial={{ opacity: 0, y: 60 }}
+                    animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                >
                     <div className="bg-white rounded-2xl shadow-xl mt-16 p-6">
                         <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
                             <div className="flex space-x-6">
@@ -125,7 +138,7 @@ export default function Hero() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
