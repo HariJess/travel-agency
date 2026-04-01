@@ -28,9 +28,9 @@ const reviews: Review[] = [
 ];
 
 const reviewPositions = [
-  { className: "absolute top-8 right-8", delay: 0.2 },
-  { className: "absolute bottom-1/2 left-8", delay: 0.4 },
-  { className: "absolute bottom-24 right-4", delay: 0.6 },
+  { className: "absolute top-8 right-0 md:right-8", delay: 0.2 },
+  { className: "absolute bottom-1/2 left-0 md:left-8", delay: 0.4 },
+  { className: "absolute bottom-24 right-0 md:right-4", delay: 0.6 },
 ];
 
 export default function TravelDiscover() {
@@ -88,7 +88,7 @@ export default function TravelDiscover() {
               <motion.img
                 src="https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Travel destination"
-                className="rounded-2xl overflow-hidden shadow-2xl h-[650px] w-2/3 object-cover"
+                className="rounded-2xl overflow-hidden shadow-2xl h-[650px] w-full mx-6 md:mx-0 md:w-2/3 object-cover"
                 initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}

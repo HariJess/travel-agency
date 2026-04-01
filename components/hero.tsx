@@ -69,7 +69,7 @@ export default function Hero() {
 
                 {/* Reservation section */}
                 <motion.div
-                    className="relative z-20 px-8 sm:px-12 lg:px-16 pb-8 -mt-16"
+                    className="relative z-20 px-4 sm:px-12 lg:px-16 pb-8 -mt-16"
                     initial={{ opacity: 0, y: 60 }}
                     animate={!isLoading ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -96,8 +96,8 @@ export default function Hero() {
                             </button>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                            <div className="lg:col-span-1">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                            <div className="col-span-2 md:col-span-3 lg:col-span-1">
                                 <label className="block text-xs text-gray-600 mb-2">Destination</label>
                                 <div className="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-teal-500 transition-colors cursor-pointer">
                                     <MapPin className="w-5 h-5 text-teal-500" />
@@ -105,7 +105,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="lg:col-span-1">
+                            <div className="col-span-1">
                                 <label className="block text-xs text-gray-600 mb-2">Check-in</label>
                                 <div className="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-teal-500 transition-colors cursor-pointer">
                                     <Calendar className="w-5 h-5 text-teal-500" />
@@ -113,7 +113,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="lg:col-span-1">
+                            <div className="col-span-1">
                                 <label className="block text-xs text-gray-600 mb-2">Check-out</label>
                                 <div className="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-teal-500 transition-colors cursor-pointer">
                                     <Calendar className="w-5 h-5 text-teal-500" />
@@ -121,7 +121,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="lg:col-span-1">
+                            <div className="col-span-2 md:col-span-1">
                                 <label className="block text-xs text-gray-600 mb-2">Room & Guest</label>
                                 <div className="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-teal-500 transition-colors cursor-pointer">
                                     <Users className="w-5 h-5 text-teal-500" />
@@ -129,7 +129,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="lg:col-span-1">
+                            <div className="col-span-2 md:col-span-3 lg:col-span-1">
                                 <label className="block text-xs text-transparent mb-2">Search</label>
                                 <button className="w-full bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2">
                                     <Search className="w-5 h-5" />

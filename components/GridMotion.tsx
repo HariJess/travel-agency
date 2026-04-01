@@ -13,66 +13,75 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const mouseXRef = useRef<number>(0);
 
-  const totalItems = 35; // 5 rows x 7 items par row
+  const totalItems = 35;
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
 
   let combinedItems: (string | ReactNode)[] = defaultItems;
   if (items && items.length > 0) {
-    // Si on a >= totalItems, on prend les premières, sinon on boucle les images avec modulo
     combinedItems = items.length >= totalItems
       ? items.slice(0, totalItems)
       : Array.from({ length: totalItems }, (_, i) => items[i % items.length]);
   }
 
-  // Animation logic
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
-
     mouseXRef.current = window.innerWidth / 2;
 
-    const handleMouseMove = (e: MouseEvent): void => {
-      mouseXRef.current = e.clientX;
-    };
+    const isTouchDevice = window.innerWidth < 1024;
+    const maxMoveAmount = 300;
+    const baseDuration = 0.8;
+    const inertiaFactors = [0.6, 0.4, 0.3, 0.2];
+
+    let progress = 0;
+    let autoDirection = 1;
 
     const updateMotion = (): void => {
-      const maxMoveAmount = 300;
-      const baseDuration = 0.8;
-      const inertiaFactors = [0.6, 0.4, 0.3, 0.2];
+      if (isTouchDevice) {
+        progress += 0.002 * autoDirection;
+        if (progress >= 1) autoDirection = -1;
+        if (progress <= 0) autoDirection = 1;
+        mouseXRef.current = progress * window.innerWidth;
+      }
 
       rowRefs.current.forEach((row, index) => {
         if (row) {
           const direction = index % 2 === 0 ? 1 : -1;
           const moveAmount = ((mouseXRef.current / window.innerWidth) * maxMoveAmount - maxMoveAmount / 2) * direction;
-
           gsap.to(row, {
             x: moveAmount,
             duration: baseDuration + inertiaFactors[index % inertiaFactors.length],
             ease: 'power3.out',
-            overwrite: 'auto'
+            overwrite: 'auto',
           });
         }
       });
     };
 
+    const handleMouseMove = (e: MouseEvent): void => {
+      mouseXRef.current = e.clientX;
+    };
+
     const removeAnimationLoop = gsap.ticker.add(updateMotion);
-    window.addEventListener('mousemove', handleMouseMove);
+
+    if (!isTouchDevice) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
       removeAnimationLoop();
+      if (!isTouchDevice) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
     };
   }, []);
 
-  // url check helper 
   const isUrl = (s: string) => typeof s === 'string' && (s.startsWith('http') || s.startsWith('/'));
 
   return (
     <div ref={gridRef} className="h-full w-full overflow-hidden">
       <section
         className="w-full h-screen overflow-hidden relative flex items-center justify-center"
-        style={{
-          background: `radial-gradient(circle, ${gradientColor} 0%, transparent 100%)`
-        }}
+        style={{ background: `radial-gradient(circle, ${gradientColor} 0%, transparent 100%)` }}
       >
         <div className="absolute inset-0 pointer-events-none z-[4] bg-[length:250px]"></div>
         <div className="gap-4 flex-none relative w-[150vw] h-[125vh] grid grid-rows-5 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
@@ -81,9 +90,7 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColor = 'black' }
               key={rowIndex}
               className="grid gap-4 grid-cols-7"
               style={{ willChange: 'transform, filter' }}
-              ref={el => {
-                if (el) rowRefs.current[rowIndex] = el;
-              }}
+              ref={el => { if (el) rowRefs.current[rowIndex] = el; }}
             >
               {Array.from({ length: 7 }, (_, itemIndex) => {
                 const content = combinedItems[rowIndex * 7 + itemIndex];

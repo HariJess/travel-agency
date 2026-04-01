@@ -65,7 +65,7 @@ export default function ContactCard() {
       <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           {/* LEFT - Video */}
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 px-4 lg:p-12 flex items-center justify-center relative">
+          <div className="hidden md:flex bg-gradient-to-br from-purple-50 to-blue-50 px-4 lg:p-12 flex items-center justify-center relative">
             <div className='flex items-center justify-center w-full'>
               <video
                 src="/contact/contact.mp4"
